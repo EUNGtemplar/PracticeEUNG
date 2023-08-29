@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SOUND.</title>
+</head>
+<body>
+    <!--form 서버에 무언가를 전송하는 명령어-->
+    <form action="sever" method="get">
+        <label for="mytexts"> 지원동기 </label>
+        <textarea style="width:100%" rows="2" cols="20" name="mytexts" placeholder="지원동기작성."></textarea>
+        <hr><!-- hr 호라이즌 로우:가로줄-->
+        <!-- 줄과 입력표시 갯수-->
+
+        <lavel for="field"> <h5>지원분야 1지망</h5></lavel>
+        <input type="radio" name="field" value="개발자" checked="checked">개발자</input>
+        <input type="radio" name="field" value="기술영업">기술영업</input>
+        <input type="radio" name="field" value="생산팀">생산팀</input>
+        <br>
+        <!--checked 기본설정값을 설정한다.-->
+        
+        <lavel for="bohun">보훈대상</lavel>
+        <input type="checkbox" name="bohun">보훈대상이다.</input>
+
+        <lavel for="field2"> <h5>지원분야 2지망</h5></lavel>
+        <input type="radio" name="field2" value="현장">현장</input>
+        <input type="radio" name="field2" value="사무">사무</input>
+        <input type="radio" name="field2" value="복합">복합</input>
+        <!-- value 로 서버로 보낼 데이터를 설정해주어야한다.
+             name의 구별화:선택지에 대한 데이터 전송을 생각해야한다.-->
+        <br>
+
+        <input type="submit">
+
+
+    </form>
+    
+</body>
+</html>

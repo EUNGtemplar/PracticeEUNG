@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+.container{
+            display: flex;
+            border: 1px solid black;
+        }
+
+        .box{
+            background-color: black;
+            margin:5px;
+            width:80px;
+            
+        }
+        p{ color:white; text-align: center;}
+
+        #ops1{flex-wrap: nowrap;}
+        #ops2{flex-wrap: wrap;}
+        #ops3{flex-wrap: wrap-reverse;}
+        /* nowrap: 디폴트 짜그러진다. wrap: 짜그러지지않는다. wrap-reverse: 시작점<->끝점*/
+        #ops4{flex-flow: row-reverse wrap-reverse;}
+    </style>
+</head>
+<body>
+
+    <div class="container" id="ops1">
+        <div class="box">   <p>1</p> </div>
+        <div class="box">   <p>2</p> </div>
+        <div class="box">   <p>3</p> </div>
+        <div class="box">   <p>4</p> </div>
+        <div class="box">   <p>5</p> </div>
+        <div class="box">   <p>6</p>  </div>
+    </div>
+
+    <div class="container" id="ops2">
+        <div class="box">   <p>1</p> </div>
+        <div class="box">   <p>2</p> </div>
+        <div class="box">   <p>3</p> </div>
+        <div class="box">   <p>4</p> </div>
+        <div class="box">   <p>5</p> </div>
+        <div class="box">   <p>6</p>  </div>
+    </div>
+
+    <div class="container" id="ops3">
+        <div class="box">   <p>1</p> </div>
+        <div class="box">   <p>2</p> </div>
+        <div class="box">   <p>3</p> </div>
+        <div class="box">   <p>4</p> </div>
+        <div class="box">   <p>5</p> </div>
+        <div class="box">   <p>6</p>  </div>
+    </div>
+
+    <div class="container" id="ops4">
+        <div class="box">   <p>1</p> </div>
+        <div class="box">   <p>2</p> </div>
+        <div class="box">   <p>3</p> </div>
+        <div class="box">   <p>4</p> </div>
+        <div class="box">   <p>5</p> </div>
+        <div class="box">   <p>6</p>  </div>
+    </div>
+    
+</body>
+</html>

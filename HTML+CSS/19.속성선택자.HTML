@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .c1 a[href]{background-color: green; color:white;}
+        .c2 a[href='#']{color:red;}
+        .c3 p[class~='word'] {color:red;}
+        /* 속성 ~=값 은 일치하는 것과 공백만 적용된다. */
+        .c4 p[class|='word']{color:pink;}
+        /* 속성|= 값 은 일치하는 것과 하이픈만 적용된다. */
+        .c5 p[class^='word']{color:orange;}
+        /* 속성^=값은 값으로 시작하는 것만 적용된다. */
+        .c6 p[class$='word']{color:blue;}
+        /* 속성$=값은 값으로 끝나는 것만 적용된다. */
+        .c7 p[class*='word']{color:darkgray}
+        /* 속성*=값은 일부가 일치하는 것 모두 적용된다. */
+
+    </style>
+</head>
+<body>
+<div class="c1">
+    <a href="#">a1</a>
+    <a>a2</a>
+    <a href="#">a3</a>
+    <a href="#">a4</a>
+</div>
+<hr>
+<div class="c2">
+    <a href="#">a1</a>
+    <a>a2</a>
+    <a href="https://www.naver.com">a3</a>
+    <a href="#">a4</a>
+</div>
+<hr>
+<div class="c3">
+    <p><h3>.c3 p[class~='word']</h3><br> ~= 검색어와 Matching, 빈칸 구분하여 포함</p>
+    <p class="word">word</p>
+    <p class="word-another">word-another</p>
+    <p class="word another">word another</p>
+    <p class="wordanother">wordanother</p>
+    <p class="another word">another word</p>
+    <p class="word_another">word_another</p>
+</div><hr>
+<div class="c4">
+    <p><h3>.c4 p[class|='word']</h3><br> |= 검색어와 Matching, 하이픈만 포함</p>
+    <p class="word">word</p>
+    <p class="word-another">word-another</p>
+    <p class="word another">word another</p>
+    <p class="wordanother">wordanother</p>
+    <p class="another word">another word</p>
+    <p class="word_another">word_another</p>
+</div><hr>
+<div class="c5">
+    <p><h3>.c5 p[class^='word']</h3><br> ^= 검색어와 Matching, 검색어로 시작하는 요소</p>
+    <p class="word">word</p>
+    <p class="word-another">word-another</p>
+    <p class="word another">word another</p>
+    <p class="wordanother">wordanother</p>
+    <p class="another word">another word</p>
+    <p class="word_another">word_another</p>
+</div><hr>
+<div class="c6">
+    <p><h3>.c6 p[class$='word']</h3><br> $= 검색어와 Matching, 검색어로 끝나는 요소</p>
+    <p class="word">word</p>
+    <p class="word-another">word-another</p>
+    <p class="word another">word another</p>
+    <p class="wordanother">wordanother</p>
+    <p class="another word">another word</p>
+    <p class="word_another">word_another</p>
+    <p class="another_word">another_word</p>
+    <p class="anotherword">anotherword</p>
+</div><hr>
+<div class="c7">
+    <p><h3>.c7 p[class*='word']</h3><br> *='검색어'와 Matching, 검색어로 끝나는 요소</p>
+    <p class="word">word</p>
+    <p class="word-another">word-another</p>
+    <p class="word another">word another</p>
+    <p class="wordanother">wordanother</p>
+    <p class="another word">another word</p>
+    <p class="word_another">word_another</p>
+    <p class="another_word">another_word</p>
+    <p class="anotherword">anotherword</p>
+</div>
+</body>
+</html>

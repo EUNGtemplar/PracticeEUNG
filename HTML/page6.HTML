@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="Server" method="get">
+        
+        <input type="number" name="number"><br>
+        <!--숫자만을 입력하는 명령어-->
+        <input type="reset" value="초기화"><br>
+        <!--입력된 항목들을 초기화 하는 명렁어-->
+        <input type="button" value="클릭" onclick="alert('유효성검사통과')"><br>
+        <!-- onclick="alert('')" 클릭 시 팝업창 설정
+            일반 submit 버튼으로 전송과 일반 버튼생성후 유효성 검사 등 절차 생성가능-->
+        
+        <button type="submit">서버로 전송</button>
+        <input type="submit" value="서버로 제출">
+        <!-- 둘 다 같으나 버튼타입, 인풋타입 작성법의 차이가 있다.-->
+
+
+
+        <input type="submit">
+
+    </form>
+
+    
+</body>
+</html>

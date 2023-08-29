@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewspanort" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .content :nth-child(3){background-color: pink;}
+        /* 부모 안에 있는 모든 요소 중에서 n번째 자식에 적용 */
+        .content :nth-child(2n+1){color:red;}
+        li.new::before{
+            content:"😃";
+            color:red;}
+        li.new::after{
+            content:"😁";
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <p>내용5</p>
+    </div>
+    
+    <ul>
+        <li class="new">제품1</li>
+        <li class="old">제품2</li>
+        <li class="old">제품3</li>
+        <li class="new">제품4</li>
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .nav1 ul li{
+            float:left;
+            width:100px;
+            list-style:none;/* li 구분점을 없앰 */}
+        .nav1 a:link, .nav1 a:visited{text-decoration: none; padding: 10px;}
+        /* text-decoration:none;밑줄을 없앰 */
+     
+        .nav1 a:hover{background-color: #000; color:white;}
+        .nav1 a:active{background-color:pink;}
+        /* */
+        #intro:target{background-color: aquamarine;}
+        #tbox1:disabled{color:red;}
+        #tbox1:enabled{color:blue;}
+        #basic:checked + label{color:red;}
+        input[type=text]{color:green;}
+        input[type=number]{color:green;}
+        input:not([type=text]){color:green}
+
+
+    </style>
+</head>
+<body>
+    <p><b>link</b><br>방문하지 않은 링크에 스타일 적용</p>
+    <p><b>visited</b><br>방문한 링크에 스타일 적용</p>
+    <p><b>hover</b><br>요소에 마우스를 포인트를 올려놓을때 스타일 적용</p>
+    <p><b>active</b><br>요소를 클릭했을 때 스타일 적용</p>
+    <p><b>focus</b><br>마우스를 올려두거나 Tab키로 이동했을 때 스타일 적용</p>
+    <hr><!--사용자 행동에 따라 스타일 변화주기-->
+
+    <nav class="nav1">
+        <ul>
+            <li><a href="#intro">안내</a></li>
+            <li><a href="#room">객실</a></li>
+            <li><a href="#price">요금</a></li>
+            <li><a href="#resevation">예약</a></li>
+        </ul>
+    </nav>
+<br>
+    <div class="content">
+        <div id="intro">이용안내~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+        <div id="room">객실 소개~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div></div>
+        <div id="price">이용 요금~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div></div>
+        <div id="resevation">예약 하기~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div></div>
+
+    </div>
+
+    <form action="Server">
+        <textarea id="tbox1" style="width:50%" rows="5" cols="10" name="memo"> 작성</textarea>
+        <br><input type="radio" name="sell" id="basic">
+        <label for="baisc">선택 1</label>
+        <input type="radio" name="sell" id="basic2">
+        <label for="basic2">선택 2</label>
+<br>
+        <input type="text" id="text1">
+        <label for="text1">text 입력 창</label>
+<br>
+        <input type="number" name="number">
+        
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: #808080;
+            width:800px; height:400px;
+            display:flex;
+            margin: 1px auto;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .origin{
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            margin:50px;
+        }
+
+        .orange-box{width:100px; height:100px; background-color: orange;
+            transition-duration: 0.4s;}
+
+        #movex:hover{transform: translateX(30px);}
+        #movey:hover{transform: translateY(30px);}
+        #movexy:hover{transform: translate(10px, 30px);}
+        .rotateX:hover{transform: rotateX(7deg);}
+        .perspective{
+            perspective: 500px;
+        }
+
+        #container-skew{
+             width: 600px;
+             margin: 20px auto;
+        }
+        h1{
+            width: 500px;
+            height: 80px;
+            background-color: black;
+            color:white;
+            line-height: 80px;
+            text-align: center;
+            
+        }
+        h1:hover{transform: skewX(15deg);
+            transition-duration: 0.3s;}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="origin">
+            <div id="movex" class="orange-box"></div>
+
+        </div>
+        <div class="origin">
+            <div id="movey" class="orange-box"></div>
+        </div>
+
+        <div class="origin">
+            <div id="movexy" class="orange-box"></div>
+        </div>
+    </div>
+
+    <div class="container">
+            <div class="origin" id="perspective">
+                <div class="rotateX">
+                <img src="1.png" style="width: 100px;">
+                </div>
+            </div>
+    </div>
+
+    <div id="container-skew">
+        <h1>CSS 변형 함수 : SKEW</h1>
+    </div>
+    
+</body>
+</html>

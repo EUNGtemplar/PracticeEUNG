@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뚱이의 모험</title>
+
+    <style>
+        th{border:1px solid black;}
+        td{border:1px solid black;}
+    </style>
+
+</head>
+
+<body>
+<h1>수습 국원 모집</h1>
+<p><h2>방송에 관심 있는 새내기 여러분 환영합니다</h2></p>
+<p>교내 방송국에서 신입생을 대상으로 수습 국원을 모집합니다. 학부와 전공은 상관없습니다.<br>
+방송에 관심 있는 여러 학우의 지원 바랍니다.</p>
+<ul>
+    <li><b>모집 기간 :</b> 3월 2일 ~ 3월 11일 </li>
+    <li><b>모집 분야 :</b> 아나운서, PD, 엔지니어</li>
+    <li><b>지원 방법 :</b> 양식 작성 후 이메일 접수<br><i>지원서 양식은 교내 방송국
+        홈페이지 공지 게시판에 있습니다.
+    </i></li>
+</ul>
+<p><h3>혜택</h3></p>
+<ol type="a">
+    <li>수습기자 활동 중 소정의 활동비 지급</li>
+    <li>정기자로 진급하면 장학금 지금</li>
+</ol><hr><br><br><br>
+
+<h1>수습 국원 지원 양식</h1>
+<form action="Server" method="get">
+<table style="outline:1px solid black; font-size:20px;">
+    <colgroup>
+    <col><col style="width:100px"><col style="width:150px">
+    </colgroup>
+    
+    <tr><th rowspan="3">개인정보</th><th>이름</th><td><input type=text placeholder="입력"></td></tr>
+    <tr><th>학화/학번</th><td><input type=text value=placeholder="입력"></td></tr>
+    <tr><th>연락처</th><td><input type=text placeholder="입력"></td></tr>
+    <tr><th>지원분야</th><td colspan="2"><input type=text placeholder="입력" size="35"></td></tr>    
+    
+    
+</table><br>
+<input type="submit" value="제출하기">    
+</form><hr><br><br><br>
+
+<form action="Server" method="get">
+<fieldset style="width:500px;">
+    <legend><h2>분야선택<h2></h2></legend>
+    <p><b>분야를 선택해주세요.<b></b></p>
+    <input type="radio" name="job" value="아나운서"> 아나운서
+    <input type="radio" name="job" value="PD"> PD
+    <input type="radio" name="job" value="엔지니어"> 엔지니어<br><br>
+    <input type="submit" onclick="alert('제출되었습니다.')" >
+
+</fieldset>
+</form><hr><br><br><br>
+
+<form action="Server2" method="get">
+    <h1>회원 가입을 환영합니다.</h1>
+ <fieldset style="width:500px;">
+    <legend>사용자정보</legend>
+    <ul>
+        <li><label for="id">아이디</label>&nbsp; &nbsp;<input type="text" name="id"></li>
+        <li><label for="email">이메일</label>&nbsp; &nbsp;<input type="email" name=email></li>
+        <li><label for="pw">비밀번호</label>&nbsp; &nbsp; <input type="password" name="pw"></li>
+        <li><label for="pw2">비밀번호 확인</label>&nbsp; &nbsp; <input type="password" name="pw2"></li>
+    </ul>
+</fieldset><hr><br><br><br>
+
+ <fieldset style="width:500px;">
+    <legend>이벤트와 새로운 소식</legend>
+    <input type="radio" name="em-susin" value="em-YES">
+    <label for="em-susin">메일 수신</label>
+    <input type="radio" name="em-susin" value="em-NO">
+    <label for="em-susin">메일 수신 안 함</label>
+ </fieldset>
+
+ <input type="submit" value="가입하기">
+ <input type="reset" value="취소">
+</form><hr><br><br><br>
+
+<input type="number" min="0" max="50">
+<input type="range" min="0" max="100" step="2"><hr><br><br><br>
+
+<div>
+<form action="Server3" method="get">
+    <fieldset style="width:500px;">
+        <legend>배송 정보</legend>
+     <ul>
+        <li>
+        <label for="list">주문 상품</label>
+        <input type="text" name="list" value="상품용 3KG" readonly>
+        </li>
+        <li>
+            <label for="user-name">이름</label>
+            <input type="text" name="user-name" placeholder="이름을 입력하세요." autofocus Required>
+        </li>
+        <li>
+            <label for="addr">배송 주소</label>
+            <input type="text" name="addr" placeholder="주소를 입력하세요." required>
+        </li>
+        <li>
+            <label for="email2">이메일 주소</label>
+            <input type="email" style="width:70px;" name="email2" placeholder="이메일을 입력하세요." required>@
+            <select>
+                <option value="@naver.com">naver.com</option>
+                <option value="@nate.com">nate.com</option>
+                <option value="daum.com">daum.com</option>
+            </select>
+        </li>
+        <li>
+            <label for="phone">연락처</label>
+            <input type="tel" name="phone" placeholder="연락처를 입력하세요." required>
+        </li>
+        <li>
+            <label for="day">배송 일정</label>
+            <input type="date" name="day" placeholder="배송일정을 선택하세요." min="2023-08-15" max="2023-08-25" required>
+        </li><hr>
+        <li>
+            <label for="loot">가입경로</label>
+            <select name="loot">
+                <option value="blog">블로그</option>
+                <option value="friend">지인소개</option>
+            </select>
+        </li>
+        <li>
+            <label for="memo">메모</label>
+            <textarea name="memo" cols="40" rows="4" placeholder="남기실 말씀"></textarea>
+        </li>
+     </ul>
+    </fieldset>
+
+    <div>
+        <input type="submit" value="주문하기">
+        <input type="reset" value="취소하기">
+    </div><br><br><br><br><br><hr>
+
+    <h1>프런트엔드 개발자 지원서</h1>
+    <p>HTML, CSS, javascript의 기술을 이해하고 실무 경험이 있는 분을 찾습니다.</p><hr>
+    <form action="Server" method="get">
+        <fieldset>
+            <legend style=>개인 정보</legend>
+            <ul>
+                <li>
+                    <label for="u-name">이름</label>
+                    <input type="text" name="u-name" placeholder="공백 없이 입력하세요" required>
+                </li>
+                <li>
+                    <label for="p-number">연락처</label>
+                    <input type="cal" name="p-number">
+                </li>
+            </ul>
+        </fieldset>
+
+        <fieldset>
+            <legend>지원 분야</legend>
+            <ul>
+              <li><input type="radio" name="job" id="wepp" value="web-p">
+              <label for="wepp">웹 퍼블리싱</label></li>
+              <li><input type="radio" name="job" id="weba" value="web-a">
+              <label for="weba">웹 애플리케이션 개발</label></li>
+              <li><input type="radio" name="job" id="develop" value="develop">
+              <label for="develop">개발 환경 개선</label></li>
+            </ul>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>지원 동기</legend>
+            <textarea cols="60" rows="5" placeholder="본사 지원 동기를 간략히 써 주세요."></textarea>
+        </fieldset>
+
+        <input type="submit" value="접수하기">
+        <input type="reset" value="다시 쓰기">
+        <button type="submit" onclick="('힝입니다.')">눌러주세요.</button>
+        <button type="reset">눌러주세요2.</button>
+        <p>감사합니다.</p>
+
+        <img src="뚱이.png">
+
+
+    </form>
+
+
+
+</form>
+
+
+</div>
+
+</body>
+</html>
+

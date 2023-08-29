@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{color:brown}
+        div a{color:yellow}
+        div div a{color:green}
+
+        .container2>a{background-color: purple;}
+        
+        .sibling1 + p{color:green;}
+        .sibling2 ~ p{color:purple;}
+
+        .ch + label{background-color:black; color:white;}
+        /* 인접 형제 선택자 클래스 다음의 라벨 하나만 */
+        .ch2 ~ label{background-color: purple; color:white;}
+        /* 현제 선택자 클래스2 안의 모든 라벨 변경 */
+    </style>
+</head>
+<body>
+
+    <a href="#">레벨1</a>
+    <div class="container">
+        <a href="#">레벨2</a>
+        <div>
+            <a href="#">레벨3</a>
+        </div>
+    </div>
+<hr style="float:left; width:200px;"><br>
+
+    <a href="#">레벨1</a>
+    <div class="container2">
+        <a href="#">레벨2</a>
+        <div>
+            <a href="#">레벨3</a>
+        </div>
+    </div>
+
+    <div class="sibling1"></div>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    
+    <div class="sibling2"></div>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    
+    <form action="Server" method="get">
+        <input type="checkbox" name="chk1" class="ch">
+        <label for="chk1">항목 1</label>
+        <input type="checkbox" name="chk2" class="ch2">
+        <label for="chk2">항목 2</label>
+        <input type="checkbox" name="chk3" class="ch2">  
+        <label for="chk3">항목 3</label>
+
+    </form>
+    
+
+    
+</body>
+</html>

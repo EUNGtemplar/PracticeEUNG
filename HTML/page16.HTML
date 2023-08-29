@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{margin:0;
+        padding:0;
+        font-family:'Courier New', Courier, monospace;
+        font-size:40px;
+        text-align:center;
+        }
+
+        #name {
+            color:purple;
+        }
+        .name2 {
+            color:green;}
+        .nam3{
+            color:blue;
+        }
+        
+
+    </style>
+
+</head>
+<body>
+    <img src="뚱이.png" width="200">
+    <p id="name">뚱이의 모험</p>
+    <p class="name2">뚱이 어드벤처</p>
+
+    <p id="name3" class="nam3"> 스펀지밥의 모험 </p>
+
+    <button onclick="change_text()">ID NAME 바꾸기</button>
+    <button onclick="change_text2()">ID NAME 바꾸기2</button>
+    <script>
+        const change_text = ()=>{
+            document.getElementById("name").innerHTML = "뚱스";
+        }
+        
+        const change_text2 = ()=>{
+            document.getElementById("name3").innerHTML = "땅스";
+        }
+    </script>
+
+</body>
+</html>
