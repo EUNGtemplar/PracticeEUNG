@@ -12,6 +12,19 @@
 <body>
     <h1 id="heading"> Javascript</h1>
     <p id="text">위 텍스트 클릭</p>
+    <p id="text_back">Back</p>
+
+    <script>
+        var heading = document.querySelector('#heading');
+        heading.onclick = function(){
+            heading.style.color="red"
+        }
+
+        var text_back = document.querySelector('#text_back')
+        text_back.onclick = () => {
+            heading.style.color = "blue";
+        }
+    </script>
     
 </body>
 </html>
