@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let my_complex = 1;
+        let selection = prompt("당신의 선택은? 1. ~ 2. ~ 3. ~, 10. ~");
+        /*
+        if (selection == "1"){document.write("<p>1번을 선택하셨습니다.</p>")}
+        else if (selection == "2"){document.write("<p>2번을 선택하셨습니다.</p>")}
+        else if (selection == "3" && my_complex == "2"){document.write("<p>3번을 선택하셨습니다.</p>")}
+        else if (selection == "4"){document.write("<p>4번을 선택하셨습니다.</p>")}
+        else if (selection == "5"){document.write("<p>5번을 선택하셨습니다.</p>")}
+        else if (selection == "6"){document.write("<p>6번을 선택하셨습니다.</p>")}
+        else if (selection == "7"){document.write("<p>7번을 선택하셨습니다.</p>")}
+        else if (selection == "8"){document.write("<p>8번을 선택하셨습니다.</p>")}
+        else if (selection == "9"){document.write("<p>9번을 선택하셨습니다.</p>")}
+        else if (selection == "10"){document.write("<p>10번을 선택하셨습니다.</p>")}
+        else {document.write("범위를 벗어나셨습니다.")}
+        */
+
+
+        switch(selection){
+            case "1":
+                document.write("<p>1번 선택하셨습니다.</p>")
+                break;
+            case "2":
+                document.write("<p>2번 선택하셨습니다.</p>")
+                break;
+            case "3":
+            case "4":
+            case "5":
+            case "6":
+                document.write("<p>3-6번 선택하셨습니다.</p>")
+                break;
+            case "7":
+                document.write("<p>7번 선택하셨습니다.</p>")
+                break;
+            case "8":
+                document.write("<p>8번 선택하셨습니다.</p>")
+                break;
+            case "9":
+                document.write("<p>9번 선택하셨습니다.</p>")
+                break;
+            case "10":
+                document.write("<p>10번 선택하셨습니다.</p>")
+                break;
+            default:
+                document.write("<p>범위를 벗어나셨습니다.</p>")
+        }
+        
+    </script>
+    
+</body>
+</html>

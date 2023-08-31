@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+ 
+    let jum = prompt("총점은?")
+    if (jum >= 0 && jum <= 100){
+        if (jum>=70 && jum<=79){grade = "C";}
+        else if (jum>=80 && jum<=89){grade = "B";}
+        else if (jum>=90){grade = "A";}
+        else if (jum>=60){grade = "D";}
+        else if (jum>=50){grade = "E";}
+        else if (jum>=0){grade = "F";}
+        
+        document.write("<p>학점은"+grade+"입니다.</p>");
+    }
+    else{
+        document.write("점수가 잘 못 입력되었습니다.")
+    }
+
+    </script>
+
+
+
+
+</body>
+</html>
