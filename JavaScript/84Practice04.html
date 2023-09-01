@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let sum_val = 0;
+
+        for(let row = 1; row < 11; row++){
+            for(let col = 1; row < 11; col++){
+                let num = row + col -1;
+                sum_val += num;
+                document.write(num + " ")
+            }
+            document.write("</br>")
+        }
+        document.write("누적 합:"+sum_val);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <style>
+        .my_strong{
+            color: red; 
+        }
+
+
+    </style>
+<body>
+    
+    <script>
+
+        //2(dan) * 4(gop) = 8
+        dan = prompt("구구단 단 수 선택")
+
+
+
+        for(let gop = 1; gop < 10; gop++){
+            res = dan * gop;
+            if (gop % 2 == 0)
+            document.write("<p class='my_strong'>" +dan+ " * " +gop+ " = " +res+"</p>")
+            else{document.write("<p>" +dan+ " * " +gop+ " = " +res+"</p>")}
+        }
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let sum_100 = 0;
+        for(let num = 1; num <= 100; num++){
+            let num_1 = parseInt((num/1)%10);//1의 자리 
+            let num_2 = parseInt((num/10)%10);//10의 자리
+            let num_3 = parseInt((num/100)%10);//100의 자리
+            let sum_3s = num_3 + num_2 + num_1;
+            sum_100 += sum_3s
+        }
+        document.write(sum_100);
+
+
+
+
+        /*
+        let sum_val = 0;
+        for(let a = 1; a <= 100; a++){
+            parseInt(a/100%10) = a;
+            parseInt(a/10%10) = b;
+            c = a%10;
+            
+            sum_val = a + b + c
+            document.write(a+"+"+b+"+"+c+"="+sum_val)
+            document.write("<br>")
+        }
+        */
+        
+
+    </script>
+    
+</body>
+</html>

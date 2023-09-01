@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        /*
+        for(let hang = 1; hang < 8; hang++){
+            for(let col_num = 1; col_num <= hang; col_num++){
+                document.write(col_num)
+            }//숫자를 표시한다.
+            for(let col_star = 1; col_star <= 7-hang; col_star++){
+                document.write("*");
+            }//별을 표시한다.
+            document.write("<br>") //줄 바꿈을 표현한다.
+        }
+        */
+
+        for(let hang = 1; hang < 8; hang++){
+            for (let row = 1; row < 8; row++){
+                if(hang >= row ){
+                    document.write(row)
+                }
+                else{
+                    document.write("*")
+                }
+            }
+            document.write("<br>")
+        }
+    </script>
+</body>
+</html>

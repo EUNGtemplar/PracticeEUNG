@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .my_strong{
+            color: red; 
+        }
+
+
+    </style>
+</head>
+<body>
+    <script>
+        // for (초기값; 조건; 증가식 입력)
+        for(let dan = 2; dan < 10; dan++){
+            document.write("<h1>"+dan+"단</h1>")
+            for(let gop = 1; gop < 10; gop++){
+            res = dan * gop; // 결과 = 단 * 곱
+            if (gop % 2 == 0) // if (gop을 2로 나누었을때 == 나머지가 0인 것.)
+            document.write("<p class='my_strong'>" +dan+ " * " +gop+ " = " +res+"</p>")
+            else{document.write("<p>" +dan+ " * " +gop+ " = " +res+"</p>")}
+        }
+        }
+
+
+</script>
+</body>
+</html>
