@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .detail{
+            display: none; }
+        #item{position: relative;}
+        #open{position: absolute; left: 20px; bottom: 20px}
+    </style>
+</head>
+<body>
+    <div id="item">
+        <img src="../HTML/cute.png" alt="star">
+        <button class="over" id="open" onclick="showDetail()"> 상세 설명 보기 </button>
+        <div id="desc" class="detail"> 
+            <h1> 별가사리 "뚱이" </h1>
+            <p> 뚱이는 깊은 바닷속 살아있는 불가사리 생명체이다. 
+                매우 멍청하지만 순수하여 매력적인 아이다.</p>
+            <button onclick="hideDetail()">상세 설명 닫기</button>
+            
+        </div>
+    <script>
+        function showDetail(){
+            document.querySelector('#desc').style.display = "block";
+            document.querySelector("#open").style.display = 'none';}
+            function hideDetail(){
+            document.querySelector("#open").style.display = 'block';
+            document.querySelector("#desc").style.display = 'none';}
+    </script>
+
+    <!--
+        <style>
+            .datail{ display : none;}
+            .over { backround-color: rgba(255, 255, 255, 0.5);
+                position: absolute; left:30px; bottom:30px;
+                gorder: 1px solid #ccc;
+            font-size: 1.2em}
+            #imgbox{position: relative;}
+        </style> 
+
+        <body>
+            <div id = "item">
+
+                <div id = "desc" class = "detail">
+                    <h1> 꽃 </h1>
+                    <p> 가나다라마바사 </p>
+                </div>
+            </div>
+        </body>
+
+        <script>
+        desc_status = false; 
+            if (desc_status == true){
+                document.querySelector("#desc").style.display = 'none';
+                document.querySelector("#open").innerHTML = '상세 설명 보기';
+                desc_status = false;
+            }    
+            else{
+                document.querySelector("#desc").style.display = 'blcok';
+                document.querySelector("#open").innerHTML = '상세 설명 닫기'
+            }
+    </script>
+    -->
+    </div>
+    
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{color:black;}
+    </style>
+</head>
+
+<body>
+    
+    <div id="change" onclick="changeColorHandler()">change</div>
+    <p>문단 1</p>
+    <p>문단 2</p>
+    
+    <script>
+        
+        const changeColorHandler = ()=>{
+            let changeBtn = document.querySelector('#change');
+            changeBtn.onclick = changeColor;
+        }
+        
+        const changeColor = ()=>{document.querySelector("p").style.color='red';}
+    </script>
+    
+
+</body>
+</html>
