@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toggle{background-image: url(1.png);
+                background-size: cover;
+                background-position: center;
+            background-repeat: no-repeat; transition: 1s;
+            width: 100px; height: 100px; cursor:grab;}
+        .active{
+            background-image: url(2.png);  
+            background-size: cover;
+            width: 100px; height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="toggle" onclick="menu()"></div>
+
+    <script>
+        function menu(){
+            let menu = document.querySelector(".toggle");
+            menu.classList.toggle("active");
+        }
+    </script>
+    
+</body>
+</html>

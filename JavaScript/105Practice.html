@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <img width="30%" id="blue" src="coffee-blue.jpg" alt="star0">
+    <img width="30%" id="gray" src="coffee-gray.jpg" alt="srat1">
+    <img width="30%" id="pink" src="coffee-pink.jpg" alt="srat2">
+
+    <img style="width:100%" id="big" src="coffee-blue.jpg" alt="star0">
+
+    <script>
+        const select = (color) => {
+            let img_path = "coffee-" +color+ ".jpg"
+            document.getElementById('big').setAttribute("src", img_path)
+        }
+    </script>
+</body>
+</html>

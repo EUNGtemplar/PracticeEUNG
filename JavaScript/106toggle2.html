@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn1{transition: 0.5s;}
+    </style>
+</head>
+<body>
+        <img id="btn1" src="1.png" alt="">
+        <script>
+            btn1_status = "on";
+
+            document.getElementById("btn1").onclick = () =>{
+                if(btn1_status == "close"){
+                    document.getElementById("btn1").setAttribute("src", "1.png")
+                    btn1_status = "on"
+                }
+                else{
+                    document.getElementById("btn1").setAttribute("src", "2.png")
+                    btn1_status = "close"
+                }
+            }
+        </script>
+
+</body>
+</html>

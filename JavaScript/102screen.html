@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getSize()">Screen Size Q.</button>
+    <script>
+        const getSize = ()=>{
+            document.write("<p>사용가능한 화면 높이: " +screen.availHeight+"</p>");
+            document.write("<p>사용가능한 화면 너비: " +screen.availWidth+"</p>");
+            document.write("<p>모니터 높이: " +screen.height+"</p>");
+            document.write("<p>모니터 너비: " +screen.width+"</p>");
+        }
+    </script>
+</body>
+</html>

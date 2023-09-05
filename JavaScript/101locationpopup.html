@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div>
+    <h1>Event Announcement</h1>
+    <img src="../HTML/cute.png" alt="star">
+    <p>
+        <a href="page101_main.html" onclick="loadURL(this.href); return false">자세히보기</a>
+    </p>
+  </div>
+  <script>
+    const loadURL = (url)=>{
+        window.opener.location = url;
+        window.close();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{text-align: center;}
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1> POPUP Screen.</h1>
+    <p>Welcome Home.</p>
+      
+    
+    <script>
+        
+        let newWindow = window.open("page98_notice1.html", "",
+                                "width=500, height=400, left =100, top = 200");
+         // 모니터 기준 좌표/ 이름을 설정하지 않으면 계속 팝업이 뜬다.
+        if (newWindow == null){
+            alert("팝업창이 차단되었습니다.")
+        }
+        
+
+
+        
+            
+    </script>
+
+
+</body>
+</html>

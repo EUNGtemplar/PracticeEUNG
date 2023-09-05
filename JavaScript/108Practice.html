@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="03.png" alt="" id="imgBox">
+    <p id="xy"></p>
+    <p id="name"></p>
+    <script>
+    
+        document.getElementById("imgBox").onclick = (event) =>{
+            document.getElementById("xy").innerHTML =
+            `X값 : ${event.pageX}, Y값 : ${event.pageY}`
+        
+        
+        let x = event.pageX;
+        let y = event.pageY;
+        if(100 < x && x < 169 && 54 < y && y < 143){
+            document.getElementById("name").innerHTML = "잡스형";
+            location.href = "https://www.apple.com"}
+        else if(225 < x && x < 340 && 18 < y && y < 107){
+            document.getElementById("name").innerHTML = "맥북";
+            location.href("name") = "https://www.apple.com"
+        }
+    }
+
+
+    </script>
+
+</body>
+</html>
