@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{border: 1px solid black;}
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="500px" height="500px"></canvas>
+    <script>
+    const myCanvas1 = document.querySelector('#c1');
+    const ctx1 = myCanvas1.getContext("2d");
+    
+    //destination
+    ctx1.fillStyle = "red";
+    ctx1.fillRect(100, 50, 100, 100);
+
+    // 기본값: source-over, source-in, source-out, source-atop
+    // destination-over, destination-in, destination-out, destination-atop
+    // lighter(합), darken(차), copy(나중 것), xor(배타적 or 둘 중 하나만)
+    ctx1.globalCompositeOperation = "xor"; 
+    
+    // source
+    ctx1.fillStyle = "blue";
+    ctx1.beginPath();
+    ctx1.arc(180, 120, 50, 0, 2*Math.PI);
+    ctx1.fill()
+
+    </script>
+
+    <canvas id="c2" width="500px" height="500px"></canvas>
+    
+    <script>
+    const myCanvas2 = document.querySelector('#c2');
+    const ctx2 = myCanvas2.getContext("2d");
+    
+    ctx2.globalCompositeOperation = "xor"; 
+
+    ctx2.beginPath();
+    ctx2.font = "bold 80px arial"
+    ctx2.fillText("NewCoffee.", 25, 200);
+    ctx2.fillText("Coming", 80, 280);
+
+    let img_coffee = new Image();
+    img_coffee.src = "cup1.png"
+    img_coffee.onload = function(){
+        ctx2.drawImage(img_coffee, 0, 0, myCanvas2.width, myCanvas2.height);
+    }
+        </script>
+</body>
+</html>

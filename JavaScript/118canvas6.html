@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <canvas id="c1" width="500" height="500"></canvas>
+    <script>
+        const myCanvas = document.querySelector('#c1');
+        const ctx = myCanvas.getContext("2d");
+        
+        ctx.scale(1, 0.7); //가로-세로 비율
+
+        //홍조
+        ctx.fillStyle = "red";
+        ctx.beginPath();
+        //원점 (200,70), 반지름 (80, 50), 시작각도0, 회전0, 끝각도2pi,
+        ctx.ellipse(200, 120, 10, 20, 9, 0, 2*Math.PI);
+        ctx.moveTo(150, 109)
+        ctx.ellipse(217, 123, 10, 20, 7, 0, 2*Math.PI);
+        ctx.lineWidth = 2;
+        ctx.fill();
+        //얼굴
+
+        ctx.fillStyle = "rgb(246, 156, 163)";
+        ctx.strokeStyle = "rgb(150, 35, 8)";
+        ctx.beginPath();
+        ctx.moveTo(50, 200); // 곡선의 시작점
+        // (200, 50) 가상의 중간점, 조절점, (350, 200)끝점
+        ctx.quadraticCurveTo(100, -190, 200, 200);
+        ctx.fill();
+        ctx.stroke();
+
+        //눈썹
+        ctx.strokeStyle = "black";
+        ctx.beginPath();
+        ctx.moveTo(130, 65); //시작점
+        ctx.lineTo(145, 75); //끝 점
+        ctx.lineWidth = 7;
+        ctx.stroke(); //실제로 그리기
+        //눈썹2
+        ctx.beginPath();
+        ctx.moveTo(95, 79); //시작점
+        ctx.lineTo(110, 71); //끝 점
+        ctx.lineWidth = 7;
+        ctx.stroke(); //실제로 그리기
+        //홍조
+        ctx.fillStyle = "rgb(255,116,182)";
+        ctx.beginPath();
+        //원점 (200,70), 반지름 (80, 50), 시작각도0, 회전0, 끝각도2pi,
+        ctx.ellipse(90, 120, 10, 20, 4.5, 0, 2*Math.PI);
+        ctx.moveTo(150, 109)
+        ctx.ellipse(150, 120, 10, 20, 5, 0, 2*Math.PI);
+        ctx.lineWidth = 2;
+        ctx.fill();
+
+        //입
+        ctx.beginPath();
+        ctx.arc(120, 120, 30, 0, (2*Math.PI/360)*180);
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(145, 121); //시작점
+        ctx.lineTo(155, 124); //끝 점
+        ctx.lineWidth = 2;
+        ctx.stroke(); //실제로 그리기
+        ctx.beginPath();
+        ctx.moveTo(85, 124); //시작점
+        ctx.lineTo(95, 121); //끝 점
+        ctx.lineWidth = 2;
+        ctx.stroke(); //실제로 그리기
+
+        //눈
+        ctx.fillStyle = "white";
+        ctx.strokeStyle = "black";
+        ctx.beginPath();
+        //원점 (200,70), 반지름 (80, 50), 시작각도0, 회전0, 끝각도2pi,
+        ctx.ellipse(110, 100, 10, 20, 0, 0, 2*Math.PI);
+        ctx.moveTo(140, 100)
+        ctx.ellipse(130, 100, 10, 20, 0, 0, 2*Math.PI);
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+
+        //눈동자
+        ctx.fillStyle = "black";
+        ctx.beginPath();
+        ctx.arc(114, 100, 9, 0, 2*Math.PI);
+        ctx.arc(127, 100, 9, 0, 2*Math.PI);
+        ctx.fill();
+        //눈동자 안 빛
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(114, 95, 4, 0, 2*Math.PI);
+        ctx.arc(127, 95, 4, 0, 2*Math.PI);
+        ctx.fill();
+        //눈동자 안 빛2
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(114, 105, 2, 0, 2*Math.PI);
+        ctx.arc(127, 105, 2, 0, 2*Math.PI);
+        ctx.fill();
+        //눈동자 안 빛3
+        ctx.fillStyle = "white";
+        ctx.beginPath();
+        ctx.arc(110, 102, 1.5, 0, 2*Math.PI);
+        ctx.arc(132, 102, 1.5, 0, 2*Math.PI);
+        ctx.fill();
+
+        //주근깨
+        ctx.strokeStyle = "rgb(163, 10, 36)";
+        ctx.beginPath();
+        ctx.moveTo(130, 35); //시작점
+        ctx.lineTo(131, 36); //끝 점
+        ctx.moveTo(110, 25); //시작점
+        ctx.lineTo(111, 26); //끝 점
+        ctx.moveTo(110, 195); //시작점
+        ctx.lineTo(111, 196); //끝 점
+        ctx.moveTo(90, 165); //시작점
+        ctx.lineTo(91, 166); //끝 점
+        ctx.moveTo(150, 175); //시작점
+        ctx.lineTo(151, 176); //끝 점
+        ctx.lineWidth = 2.8;
+        ctx.stroke(); //실제로 그리기
+
+
+    </script>
+    
+</body>
+</html>
