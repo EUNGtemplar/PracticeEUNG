@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+
+    <h1> 객체 : Object </h1>
+    <p> 객체 = 프로퍼티(값) + 메서드(행동) </p>
+    <p> 내장 객체 (Date, Math, Window 등 )VS 사용자 정의 객체 </p>
+    <p> 프로퍼티 = 키 : 값 </p>
+    <p> 객체는  { , , } 로 구성한다.</p>
+    <p> 객체 중 키는 문자열, 숫자, 심볼 등 ...</p>
+    <p> ex: var student = {stu_name:"땡땡이", gpa:4.5}</p>
+    <p> 객체의 값에 접근 : student.gpa / student["stu_name"] </p>
+    <p> 프로퍼티 수정 : student.gpa = 4.0 / </p>
+    <p> 프로퍼티 추가 : student.major = "Psychology"</p>
+    <p> 프로퍼티 삭제 : delete student.major</p>
+    <p> 빈 객체 생성 : var person = { }; var person = new Object();</p>
+
+    <h1>객체 중첩</h1>
+    <p> 스크립트 참조 </p>
+    <script>
+        let student = {
+            name: "응이", // student.name
+            score: {
+                com_struct:93, // student.score.com_struct
+                operating_system: 95 // student.operating_system
+            }
+
+        }
+    </script>
+
+    <h1>객체 메서드</h1>
+    <p> 스크립트 참조 </p>
+    <script>
+        let student_method = {
+            name: "응이", // student.name
+            score: {
+                com_struct:93, // student.score.com_struct
+                operating_system: 95, // student.operating_system
+                average : function(){
+                    console.log( (this.com_struct + this.operating_system)/2 )
+                }
+            }
+
+        }
+    </script>
+
+    <h1>복사 : 값 VS 참조 </h1>
+    <p>객체는 참조 복사 (원본은 하나이다.)</p>
+    <p> 스크립트 참조 </p>
+    <script>
+        let num1 = 100;
+        let num2 = num1;
+        num2 = 200;
+
+        //얕은 복사(challow copy)
+        let bag1 = {color:"red", size:100};
+        let bag2 = bag1;
+        bag2.color = "blue";
+
+        //깊은 복사(deep copy)
+        let bag3 = JSON.parse(JSON.stringify(bag1)) //객체를 새로만듦.
+        //JSON.stringify(bag1) : 객체를 문자로 바꾸어준다.
+        bag3.color = "green";
+    </script>
+
+    <h1>객체 생성자 함수 (전통적 JS)</h1>
+    <p> 스크립트 참조 </p>
+    <script>
+        function Book(title, pages, done = false) {
+            //프로퍼티(속성들: 값들)
+            this.title = title;
+            this.pages = pages;
+            this.done = done;
+            //메소드(행동)
+            this.finish = function(){
+                let str = "";
+                this.done === false ? srt = "읽고 있습니다." : str = "다 읽었습니다."
+                return str;
+            }
+        }
+
+        let book1 = new Book("응이의 HTML 이해하기", 100, false);
+        let book2 = new Book("응이의 CSS 이해하기", 200, true);
+    </script>
+
+    <h1>객체 - Class 사용자 (ES6 규격)</h1>
+    <script>
+        class Book2{
+            constructor(title, pages, done){
+            //프로퍼티(속성들: 값들)
+            this.title = title;
+            this.pages = pages;
+            this.done = done;
+            }
+            //메소드
+            finish(){
+                let str = "";
+                this.done === false ? srt = "읽고 있습니다." : str = "다 읽었습니다."
+                return str;
+        }}
+        let book3 = new Book("응이의 HTML 이해하기", 100, false);
+        let book4 = new Book("응이의 CSS 이해하기", 200, true);
+    </script>
+
+    <h1>Example - 원 넓이 구하는 객체</h1>
+    <p>객체 이름 : CircleArea</p>
+    <p>프로퍼티(값: 속성들) = 원 넓이 area, 반지름 radius</p> <!--넓이 = PI * r^2(반지름)-->
+    <p> 메소드getArea : 원 넓이를 구해서 출력한다. </p>
+    <p> 반지름 1 to 10개의 반지름을 가지는 원의 넓이를 구해보자.</p>
+
+    <script>
+        class CircleArea{
+            constructor(radius){
+            this.area = 0;
+            this.radius = radius;
+            }
+        
+        getArea(){
+            this.area = Math.PI * this.radius * this.radius;
+            return this.area;
+        }
+    }
+
+        let circleArray = new Array(10);
+        for(let i = 0; i < 10; i++){
+            circleArray[i] = new CircleArea(i+1);
+            console.log(circleArray[i].getArea());
+        }
+    </script>
+
+<script>
+    function CircleArea2(radius2){
+        this.area2 = 0;
+        this.radius2 = radius2;
+        
+    this.getArea2 = function(){
+        this.area2 = Math.PI * this.radius2 * this.radius2;
+        return this.area2;
+    }}
+
+
+    let circleArray2 = new Array(10);
+    for(let i = 0; i < 10; i++){
+        circleArray2[i] = new CircleArea2(i+1);
+        console.log(circleArray2[i].getArea2());
+    }
+</script>
+
+<h1>Example - 자동차 </h1>
+<p>객체 이름 : Car</p>
+<p>프로퍼티(값: 속성들) = speed</p> <!--넓이 = PI * r^2(반지름)-->
+<p> 메소드 : run</p>
+<p> 동작 예시 : 자동차 시동 -> 앞으로 간다 </p>
+
+
+<script>
+    class Car{
+        constructor(){
+            this.speed = 0;
+        }
+        run(){
+            this.speed = 10; // km/h
+            console.log(`현재 속도:${this.speed}Km `)
+        }
+        break(){
+            this.speed = 0;
+            console.log(`현재 속도:${this.speed}Km`)
+        }
+        accel(){
+            this.speed += 10;
+            console.log(`현재 속도:${this.speed}Km`)
+        }
+    }
+    let myCar = new Car();
+    
+</script>
+
+<h1>Example - Game </h1>
+
+<script>
+    class Knight{
+        constructor(){
+            this.healthPoint = 100;   // 체력
+            this.shieldPower = 1; // 방어력(1, 2, 3)
+            this.speed = 1;  // 보폭
+            this.attackPower = 1; // 공격력
+        }
+        drinkShieldPotion(){ //방어력 높이는 물약
+            this.shieldPower += 1;
+        }
+        guard_mega(){
+            this.is_death();
+        }
+        guard(){
+            let damage = 10 - this.shieldPower*3;
+            if(damage < 0 ) damage = 0;
+            this.healthPoint -= damage;
+            console.log(`hp : ${this.healthPoint}`);
+            this.is_death();
+        }
+        is_death(){ 
+            if(this.healthPoint <= 0) 
+            console.log(`exitGame`)
+        }
+    }
+    let k1 = new Knight();
+</script>
+
+<h1> for in  구문</h1>
+<script>
+    let friend = {
+        name:"응이",
+        where:"멀캠",
+        relation:"학생"
+    }
+    for(key in friend){
+        console.log(key)
+    }
+    for(key in friend){
+        console.log(friend[key])
+    }
+    console.log(Object.keys(friend)); //friend 객체에서 key만 추출
+    console.log(Object.values(friend));//friend 객체에서 valuse만 추출
+    console.log(Object.entries(friend));//friend 객체에서 key/valuse 쌍 추출
+</script>
+
+</body>
+</html>
