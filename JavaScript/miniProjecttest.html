@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI Project= HOME</title>
+    <style>
+    html{width:100%; height:170%;}
+    body{background:linear-gradient(4deg, rgb(49,65,96), rgb(109, 164, 138)); }
+    *{margin:0; padding:0; box-sizing: border-box;}
+    /*------------------ NAV 부분 -------------------------------*/
+    .nav-warp{ width: 100%; height: 40px; background-color: rgba(255,255,255,.2); position: fixed;  z-index: 15;}
+        .nav-left{display:flex; justify-content: center;}
+        .nav-left img{width: 35px; height: 35px; margin-top: 3px;}
+    /*------------------ Head 부분 -------------------------------*/
+    .head-box{padding-top: 40px; margin-left: 40px; height:700px; display: flex;}
+    .maintext{ justify-content: left; margin-left: 110px; position: relative; overflow: hidden;}
+    .maintext img{width: 500px;}
+    .headour img{width: 800px; position:absolute; top:150px; right: 190px; }
+    /*------------------ Main 부분 -------------------------------*/
+    .mainGridWarp{ width:100%; display: grid; overflow: hidden;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 300px);
+                grid-gap: 10px; padding:20px 50px 0px 50px;
+                font-family: "210 옴니고딕OTF 020";
+                font-size:7px;}
+        .gridBox1{grid-row:1/2; grid-column: 1/2; background-color: rgba(255, 255, 255, 0.7); border-radius: 10px;
+                    display:flex; align-items: center; z-index: 1;}
+        .gridBox2{grid-row:1/2; grid-column: 2/3; background-color: rgb(128, 0, 128, 0.7); border-radius: 10px;
+            display:flex; align-items: center; z-index: 1;}
+        .gridBox3{grid-row:1/2; grid-column: 3/4; background-color: rgb(245, 245, 220, 0.7); border-radius: 10px;
+            display:flex; align-items: center; z-index: 1;}
+        .gridBox4{grid-row:2/3; grid-column: 1/2; background-color: rgb(0, 0, 0, 0.7); border-radius: 10px;
+            display:flex; align-items: center; z-index: 1;}
+        .gridBox5{grid-row:2/3; grid-column: 2/3; background-color: rgb(255, 255, 0, 0.7); border-radius: 10px;
+            display:flex; align-items: center; z-index: 1;}
+        .gridBox6{grid-row:2/3; grid-column: 3/4; background-color: rgb(0, 128, 0, 0.7); border-radius: 10px;
+            display:flex; align-items: center; z-index: 1;}
+            .box1text{width: 70%; text-align: center; font-size: 5em;}
+            .box1img img{width:200px; height: 200px; margin-right: 40px;}
+            .box2text{width: 70%; text-align: center; font-size: 5em;}
+            .box2img img{width:200px; height: 200px; margin-right: 40px;}
+            .box3text{width: 70%; text-align: center; font-size: 5em;}
+            .box3img img{width:200px; height: 200px; margin-right: 40px;}
+            .box4text{width: 70%; text-align: center; font-size: 5em; color: white;}
+            .box4img img{width:200px; height: 200px; margin-right: 40px;}
+            .box5text{width: 70%; text-align: center; font-size: 5em;}
+            .box5img img{width:200px; height: 200px; margin-right: 40px;}
+            .box6text{width: 70%; text-align: center; font-size: 5em;}
+            .box6img img{width:200px; height: 200px; margin-right: 40px;}
+        #open{text-align: center;}
+        #popup_layer1, #popup_layer2, #popup_layer3, #popup_layer4, #popup_layer5, #popup_layer6{
+            position: fixed; top:0; left:0; z-index: 1000;
+            background-color: rgba(0, 0, 0, .3);
+            width: 100%; height: 100%;
+        }
+        .popup_box1, .popup_box2, .popup_box3, .popup_box4, .popup_box5, .popup_box6{ position:relative; top:50%; left:50%;
+            overflow:auto; height: 600px; width: 80%;
+            transform: translate(-50%, -50%); border-radius: 10px;
+            z-index: 1002; box-sizing: border-box;
+            background-color: rgba(255, 255, 255);
+        }
+
+        .character{
+            width: 200px;
+            display: block;
+            margin : 0 auto 50px;
+        }
+
+        .character2{
+            width: 200px;
+            display: block;
+            margin : 0 0 0px 200px;
+        }
+
+        .organize{
+            display: block;
+        }
+
+        .organize2{
+            display: block;
+            margin : 0;
+        }
+
+        .organize3{
+            display: block;
+            margin : 0 0 50px 0;
+            width: 80%;
+        }
+
+        #contents1, #contents2, #contents3, #contents4, #contents5, #contents6{
+            position: absolute;
+            top: 20%; left: 25%;
+        }
+
+        /*.popup_contents1 img, .popup_contents2 img, .popup_contents3 img, .popup_contents4 img, .popup_contents5 img, .popup_contents6 img{
+           
+        }*/
+
+        .closediv{position: fixed;  width: 100%; display: flex; justify-content: right;
+                  height: 30px; background-color: rgb(255, 255, 255);}
+        .closeBtn{width: 75px; height: 27px; margin:10px 10px 0px 0px;}
+        
+        .text{font-size:23px;}
+
+        
+
+    /*------------------ Footer 부분 -------------------------------*/
+    </style>
+</head>
+<body>
+    <!------------------ NAV 부분 ------------------------------->
+    <nav class="nav-warp">
+        <div class="nav-left">
+            <img src="img/main.png" alt="main">
+        </div>
+    </nav>
+    <!------------------ Head 부분 ------------------------------->
+    <div class="head-warp">
+        <div class="head-box">
+            <div class="maintext">
+                <img src="img/main-text.png" alt="">
+            </div>
+            <div class="headour">
+                <img src="img/our.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!------------------ Main 부분 ------------------------------->
+    <div class="mainGridWarp">
+        <div class="gridBox1" onclick="openLayerPopup1()" id="grid1">
+            <div class="box1text"><p class="text">징징이와 배우는</p><p>제어대상 찾기</p></div>
+            <div class="box1img"><img src="img/정윤님.png" alt=""></div>
+        </div>
+        <div class="gridBox2" onclick="openLayerPopup2()" id="grid2">
+            <div class="box2text"><p class="text">플랑크톤과<br> 배우는</p><p></p>변수 선언</p></div>
+            <div class="box2img"><img src="img/흔지님.png" alt=""></div>
+        </div>
+        <div class="gridBox3" onclick="openLayerPopup3()" id="grid3">
+            <div class="box3text"><p class="text">핑핑이와<br> 배우는</p><p>get Method</p></div>
+            <div class="box3img"><img src="img/효연님.png" alt=""></div>
+        </div>
+        <div class="gridBox4" onclick="openLayerPopup4()" id="grid4">
+            <div class="box4text"><p class="text">뚱이와<br> 배우는</p><p>Function 구조</p></div>
+            <div class="box4img"><img src="img/현응님.png" alt=""></div>
+        </div>
+        <div class="gridBox5" onclick="openLayerPopup5()" id="grid5">
+            <div class="box5text"><p class="text">래리와<br> 배우는</p><p>'없음'을<br> 나타내는 값</p></div>
+            <div class="box5img"><img src="img/다미님.png" alt=""></div>
+        </div>
+        <div class="gridBox6" onclick="openLayerPopup6()" id="grid6">
+            <div class="box6text"><p class="text">선생님과<br> 배우는</p><p>JavaScript</p></div>
+            <div class="box6img"><img src="img/호준쌤.png" alt=""></div>
+        </div>
+    </div>
+    
+    <div id="popup_layer1" style="display: none;">
+        <div class="popup_box1">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup1()"></img>
+            </div>
+            <div class="popup_contents1" id="contents1">
+                <img class="character" src="img/정윤님.png" alt="">
+                <img class="organize" src="img/정윤님_정리.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_layer2" style="display: none;">
+        <div class="popup_box2">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup2()"></img>
+            </div>
+            <div class="popup_contents2" id="contents2">
+                <img class="character" src="img/흔지님.png" alt="">
+                <img class="organize" src="img/흔지님_정리.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_layer3" style="display: none;">
+        <div class="popup_box3">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup3()"></img>
+            </div>
+            <div class="popup_contents3" id="contents3">
+                <img class="character" src="img/효연님.png" alt="">
+                <img class="organize" src="img/효연님_정리.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_layer4" style="display: none;">
+        <div class="popup_box4">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup4()"></img>
+            </div>
+                <div class="popup_contents4" id="contents4">
+                    <img class="character" src="img/현응님.png" alt="">
+                    <img class="organize" src="img/현응님_정리.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_layer5" style="display: none;">
+        <div class="popup_box5">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup5()"></img>
+            </div>
+            <div class="popup_contents5" id="contents5">
+                <img class="character" src="img/다미님.png" alt="">
+                <img class="organize" src="img/다미님_정리.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div id="popup_layer6" style="display: none;">
+        <div class="popup_box6">
+            <div class="closediv">
+                <img src="img/button.png" class="closeBtn" onclick="closeLayerPopup6()"></img>
+            </div>
+            <div class="popup_contents6" id="contents6">
+                <img class="character2" class="character" src="img/호준쌤.png" alt="">
+                <img class="organize2" src="img/호준쌤_정리.jpg">
+                <img class="organize3" src="img/for문.png">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openLayerPopup1 = () => {
+            document.getElementById("popup_layer1").style.display = "block";
+        }
+        const closeLayerPopup1 = () => {
+            document.getElementById("popup_layer1").style.display = "none";
+        }
+
+        const openLayerPopup2 = () => {
+            document.getElementById("popup_layer2").style.display = "block";
+        }
+        const closeLayerPopup2 = () => {
+            document.getElementById("popup_layer2").style.display = "none";
+        }
+
+        const openLayerPopup3 = () => {
+            document.getElementById("popup_layer3").style.display = "block";
+        }
+        const closeLayerPopup3 = () => {
+            document.getElementById("popup_layer3").style.display = "none";
+        }
+
+        const openLayerPopup4 = () => {
+            document.getElementById("popup_layer4").style.display = "block";
+        }
+        const closeLayerPopup4 = () => {
+            document.getElementById("popup_layer4").style.display = "none";
+        }
+
+        const openLayerPopup5 = () => {
+            document.getElementById("popup_layer5").style.display = "block";
+        }
+        const closeLayerPopup5 = () => {
+            document.getElementById("popup_layer5").style.display = "none";
+        }
+
+        const openLayerPopup6 = () => {
+            document.getElementById("popup_layer6").style.display = "block";
+        }
+        const closeLayerPopup6 = () => {
+            document.getElementById("popup_layer6").style.display = "none";
+        }
+    </script>
+    <!------------------ Footer 부분 ------------------------------->
+    <script>
+    </script>
+</body>
+</html>

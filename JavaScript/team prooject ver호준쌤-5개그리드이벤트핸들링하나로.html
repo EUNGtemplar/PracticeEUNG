@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINI Project= HOME</title>
+    <style>
+    html, body{width:100%; height:170%;}
+    body{background:linear-gradient(4deg, rgb(49,65,96), rgb(109, 164, 138));}
+    *{margin:0; padding:0; box-sizing: border-box;}
+    /*------------------ NAV 부분 -------------------------------*/
+    .nav-warp{ width: 100%; height: 40px; background-color: rgba(255,255,255,.2); position: fixed;}
+        .nav-left{display:flex; justify-content: center;}
+        .nav-left img{width: 35px; height: 35px; margin-top: 3px;}
+    /*------------------ Head 부분 -------------------------------*/
+    .head-box{padding-top: 40px; margin-left: 40px; height:700px;}
+    .maintext{display: flex; justify-content: left; margin-left: 40px;
+            overflow: hidden;}
+    .maintext img{width: 500px;}
+    /*------------------ Main 부분 -------------------------------*/
+    .mainGridWarp{ width:100%; display: grid; overflow: hidden;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 300px);
+                grid-gap: 10px; margin:20px 50px 0px 50px;}
+        .gridBox1{grid-row:1/2; grid-column: 1/2; background-color: white; border-radius: 10px;}
+        .gridBox2{grid-row:1/2; grid-column: 2/3; background-color: purple; border-radius: 10px;}
+        .gridBox3{grid-row:1/2; grid-column: 3/4; background-color: beige; border-radius: 10px;}
+        .gridBox4{grid-row:2/3; grid-column: 1/2; background-color: black; border-radius: 10px;}
+        .gridBox5{grid-row:2/3; grid-column: 2/3; background-color: yellow; border-radius: 10px;}
+        .gridBox6{grid-row:2/3; grid-column: 3/4; background-color: green; border-radius: 10px;}
+
+    #popup-layer{
+        position: fixed; top: 0; left: 0; z-index: 10000;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%; height: 100%;
+    }
+    .popup-box{
+        position: relative; top: 50%; left: 50%;
+        overflow: auto; width: 80%; height: 600px;
+        transform: translate(-50%, -50%);
+        z-index: 1002; box-sizing: border-box; 
+        border-radius: 10px;
+        background-color: white;
+    }
+    /*------------------ Footer 부분 -------------------------------*/
+    </style>
+</head>
+<body>
+    <!------------------ NAV 부분 ------------------------------->
+    <nav class="nav-warp">
+        <div class="nav-left">
+            <img src="img/main.png" alt="main">
+        </div>
+    </nav>
+    <!------------------ Head 부분 ------------------------------->
+    <div class="head-warp">
+        <div class="head-box">
+            <div class="maintext">
+                <img src="img/main-text.png" alt="">
+            </div>
+            <div class="head-og"></div>
+        </div>
+    </div>
+    <!------------------ Main 부분 ------------------------------->
+    <div class="mainGridWarp" onclick="openLayerPopup()">
+        <div class="gridBox1" display="flex" >
+                <img id="jingjing" src="img/정윤님.png" 
+                width="150px" height="150px">
+                <p>징징이</p>
+                
+        </div>
+
+        <div class="gridBox2" display="flex">
+                
+        </div>
+        <div class="gridBox3" display="flex">
+                
+        </div>
+        <div class="gridBox4" display="flex">
+                
+        </div>
+        <div class="gridBox5" display="flex">
+                
+        </div>
+        
+        <!-- 호준쌤: 이부분에 있던 팝업 컨텐츠를 mainGridWarp 밖으로 분리-->
+
+    </div>
+
+    <div id = "popup-layer" style ="display: none;">
+        <div class="popup-box">
+            <div class="popup-contents">
+                팝업 컨텐츠 텍스트
+            </div>
+            <div>
+                <button onclick="closeLayerPopup()">닫기</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const openLayerPopup = () => {
+            document.getElementById("popup-layer").style.display="block";
+        }
+        const closeLayerPopup = () => {
+
+            document.getElementById("popup-layer").style.display="none";
+        }
+    </script>
+    
+    <!------------------ Footer 부분 ------------------------------->
+    
+</body>
+</html>
