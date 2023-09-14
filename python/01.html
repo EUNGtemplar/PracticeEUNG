@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>python</title>
+</head>
+
+<body>
+    인터프리터 언어 VS 컴파일 언어
+    
+    - 인터프리터 : (직역)소스 코드를 한 줄씩 해석한 후 바로바로 실행
+                빠르다. 이해가 난해할 수 있다. 
+                [파이썬 / JS]
+
+    - 컴 파 일  : (의역)소스코드를 편집한다 
+                느리다. 문맥이 자연스럽고 오해가 덜하다.
+                [C/C++,JS]
+
+                파이썬 가상환경 library / package
+                proj1(web-scrapping)
+                proj2(nlp) lib_a == 0.9, lib_b = 1.3
+                proj3(yolo) lib_a == 1.1
+                proj4(data analysis)
+
+                버전관리를 하기 위해서 여러 라이브러리를 운영한다.
+                base(X) : 여러가지 라이브러리들을 기본 제공
+
+                conda env list : 현재 설치된 가상 환경 목록
+                conda create -n mulcam3 python==3.8
+
+1. 아나콘다 버전확인
+    * conda --version
+2. 가상환경 목록
+    * conda env list
+3. 가상환경 생성
+    * conda create -n [가상환경 이름] python=[Python Version]
+4. 가상환경 삭제
+    * conda remove --name [가상환경 이름] --all
+5. 가상환경 활성화/비활성화
+    * conda activate [가상환경 이름] / conda deactivate
+6. 설치된 콘다 정보 조회
+    * conda info
+7. 터미널 실행 시 conda base 가상환경 자동 적용
+    * conda config --set auto_activate_base false
+8. 터미널 실행 시 conda base 가상환경 자동 적용 해제
+    * conda config --set auto_activate_base true
+9. 가상환경 들어가기
+    *source activate [가상환경 이름]
+10. 주피터 끄기 
+    *ctr + c 
+
+    conda install jupyter notebook
+
+    # shift + enter : cell 실행 후 한 줄 생성 또는 다음 줄
+    # ctrl + enter  : 제자리에서 실행 
+
+    ------- 주피터 노트북 -------
+
+a : 위에 새로운 셀 추가
+b : 아래에 새로운 셀 추가
+
+
+c : 셀 복사하기
+v : 셀 붙여넣기
+x : 셀 잘라내기
+dd : 셀 삭제하기
+p : 셀 아래에 붙여넣기
+
+o : 실행결과 열기/닫기
+m : Markdown으로 변경
+y : Code로 변경
+
+Shift + m : 선택 셀과 아래 셀과 합치기
+Ctrl + s 또는 s  : 파일 저장
+Enter  : 선택 셀의 코드 입력 모드로 돌아가기
+
+Ctrl + Enter : 입력 셀 실행 
+Shift + Enter : 입력 셀 실행 후 아래 셀로 이동 (없으면 새로운 셀 추가)
+Alt + Enter : 입력영역 실행 후 아래 새로운 영역 추가
+
+Ctrl + a : 선택 셀의 코드 전체 선택
+Ctrl + z : 선택 셀 내 실행 취소
+Ctrl + y : 선택 셀 내 다시 실행
+Ctrl + / : 커서 위치 라인 주석처리
+
+Shitf + Ctrl + - : 커서 위치에서 셀 둘로 나누기
+
+* 문자열은 한 번 정의하면 바꿀 수 없다.
+
+</body>
+</html>
