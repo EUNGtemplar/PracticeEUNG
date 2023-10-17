@@ -14,6 +14,8 @@ Exit :
 Create database 이름; : 데이터베이스 만들기
 Create table 이름(id, name, address); : 
 	ex) create table membertbl(memberID char(8) NOT NULL, memberName char(5) NOT NULL, 			memberAddress char(20) DEFAULT NULL, primary key(memberID));
+Create table 생성할 이름 (select * from 복사할 테이블);
+
 Drop table 이름 : 테이블 삭제 
 
 Insert into 이름 values (1, ‘상실의 시대’, ‘한’, 1155)
@@ -26,7 +28,14 @@ Ex)   Select userid, name from usertbl where birthYear>=1970 and height>=182;
 	Select userid, name from usertbl where height between 180 and 183;
 	select userid, name, address from usertbl where address in(‘경남’, ‘전남’, ‘경북’)
 
-insert into customer values (4, '추신수', '미국캘리브랜드', 000-8000-0001);
+가장 비싼 무엇
+Select book name from book
+Where price = (Select max(price) from book);
+	
+
+Group by : 묶어서 그룹으로 표시 (group by 이름별로 그룹지어주세요)
+	where 단수 ()
+	having 복수 (group by 다음에 작성되어야 작동됨)
 
 Create table customer(custom integer primary key, namevarchar(40), address varchar(40), phone varchar(20));
 
@@ -42,3 +51,132 @@ Create table orders(
 
 Select custid from orders where bookid = 3 or bookid = 4; 
  Select custid from orders where bookid in (3,4);
+
+10.17————————————2일차 
+Create table insertTest(
+	col1 integer,
+	col2 varchar(10),
+	col3 varchar(20),
+);
+
+Desc insertTest;
+Insert into insertTest values(1, 'abc', 'abide');
+Insert into insertTest(col1, col2, col3) values(2, 'abc', 'abcde);
+Insert into insertTest(col1, col3) values(3, 'abcde');
+
+Drop table insertTest;
+
+Create table aiTest(
+Col1 integer auto_increment primary key,
+	(auto_increment 자동으로 숫자 부여)
+Col2 varchar(10),
+Col3 varchar(20));
+
+Insert into aiTest values(NULL, 'abc', 'ㄱㄴㄷ');
+Select last_insert_id();
+	(마지막에 입력된 id를 표시한다.)
+Alter table aiTest auto_increment = 100;
+	(넘버를 100부터 시작한다.)
+Set @@auto_increment_increment = 1;
+	(넘버를 숫자차이만큼 부여한다.)
+
+Insert into aiTest values(NULL, 'abc', 'ㄱㄴㄷ'), (NULL, 'abc', 'ㄱㄴㄷ'), (NULL, 'abc', 'ㄱㄴㄷ')
+
+Update aiTest set col3='가나다';
+	(col3 전체 '가나다' 변환)
+Update aiTest set col3='가나다라' where col1=#;
+	(col3 '가나다라' 변환 where col1=# 숫자인것만)
+
+Delete from aiTest where col1=###;
+	(데이터 삭제 시 where 사용 습관들이기)
+
+Alter table aiTest auto_increment = 113;
+	(데이터를 삭제하고 나면 그 공간 흔적이 있다. 그걸 지정하여 입력하기)
+
+Insert into aiTest values(118, 'abc', 'ㄱㄴㄷ')
+On duplicate key update col2='abcd', col3='ㄱㄴㄷㄹ';
+	(key값이 중복되었을 때 키 업데이트한다.)
+
+Select userid as 사용자, sum(price*amount) as 총구매액
+From buytbl group by userid;
+
+Select userid as 사용자, sum(price*amount) as 총구매액
+From buytbl group by userid order by 총구매액 desc;
+	(정렬하여 표시)
+With abc(userid, total)
+As
+(Select userid, sum(price*amount) from buytbl group by userid)
+Select * from abc;
+
+With abc(userid, total)
+As
+(Select userid, sum(price*amount) from buytbl group by userid)
+Select * from abc order by total desc;
+<=> Select userid as 사용자, sum(price*amount) as 총구매액
+	From buytbl group by userid order by 총구매액 desc;
+
+Page.243 step1 
+(SQL 변수 사용)
+Set @myvar1 = 5;
+Set @myvar2 = 3;
+Set @myvar3  = 4.25;
+Set @myvar4 = '가수 이름 : ';
+
+Select @myvar1; (= 5)
+Select @myvar1 + @myvar2; (= 8)
+Select @myvar4 as ' ', name from usertbl where height>180;
+
+# python int(), float(), str() : 타입(형) 변환
+# sql —> cast(), convert()
+	select avg(amount) as '평균 구매 개수' from buytbl;
+
+	select cast(avg(amount) as signed integer) as '평균 구매개수' from buytbl;
+	select convert(avg(amount), signed integer) as '평균 구매개수' from buytbl;
+
+	select num, '동적 문자열', price*amount as '구매액' from buytbl;
+	/*동적문자열*/select num, concat('a','b','c') as '동적 문자열', price*amount as '구매액' from buytbl;
+	select num, concat('price','*','amount') as '동적 문자열', price*amount as '구매액' from buytbl;
+	select num, concat('price','*','amount') as '동적 문자열', price*amount as '구매액' from buytbl;
+	select num, concat(price,'*',amount,'=') as '동적 문자열', price*amount as '구매액' from buytbl;
+
+(Mysql 내장함수)
+
+Select if(100>200, '참', '거짓') as '100 > 200';
+Select ifnull(null, '널');
+Select ifnull(100, '널');
+
+Select nullif(100, 100); — 같은 경우 null
+Select nullif(200, 100); — 다르면 앞 출력
+
+Select case 10 -- switch case
+	when 1 then '1이네요'
+	when 5 then '5네요'
+	when 10 then '10이네요'
+	else '그 밖의 숫자 default'
+	end;
+
+Select ascii('a');
+Select CHAR(65);
+
+Select bit_length("abc");
+Select bit_length('가나다');
+
+Select char_length("abc");
+Select length("abc");
+Select concat('010','1234','5678');
+Select concat_ws('-','010','1234','5678');
+
+Select elt(2, '일', '이', '삼', '사'); - - 이
+Select field('이', '일', '이', '삼', '사');
+Select find_in_set('이','일,이,삼,사');
+select  instr('일이삼사','이');
+Select locate('이', '일이삼사');
+
+Select format(123456.123456, 4); — 정렬, 소수아래
+	(소수점 4개 표시)
+Select round(123456.123456, 2); — 정렬, 소수아래
+	( format 과 콤마가 다르다 )
+
+Select insert('abcdefghi', 3, 4, '???');
+Select left('010-9090-1234', 3);
+Select substring_index('cafe.naver.com', '.', 2);
