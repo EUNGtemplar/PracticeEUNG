@@ -1,0 +1,235 @@
+
+Select * from 
+empTbl A inner join empTbl B
+On A.? = B.?
+
+Select * from 
+empTbl A inner join empTbl B
+On A.manager = B.emp;
+
+Select A.emp as 직원명, B.emp as 상관명, B.empTel as 상관번호 from
+empTbl A inner join empTbl B
+On A.manager = B.emp
+Where A.emp = '우대리';
+
+(Table 'buytbl'에 노트북/모니터의 판매수량 확인)
+Select * from buytbl where prodName in ('노트북', '모니터');
+
+Select * from buytbl where prodName = '노트북'
+Union select * from buytbl where prodName = '모니터';
+
+
+
+DROP PROCEDURE IF EXISTS ifProc;
+DELIMITER $$ 
+CREATE PROCEDURE ifProc()
+BEGIN
+ DECLARE var1 INT;
+ SET var1 = 300;
+ IF var1 = 100 THEN
+  SELECT '변수 값이 100이다.' as 출력결과;
+ ELSEIF var1 = 200 THEN
+  SELECT '변수 값이 200이다.' as 출력결과;
+ ELSE
+  SELECT '변수 값이 100, 200이 아니다.' as 출력결과;
+ END IF;
+END $$
+DELIMITER ;
+
+CALL ifProc();
+
+DROP PROCEDURE IF EXISTS ifProc3;
+DELIMITER $$ 
+CREATE PROCEDURE ifProc3()
+BEGIN
+ DECLARE point INT;
+ DECLARE credit CHAR(1);
+ SET point = 77;
+ IF point >= 90 THEN
+  SET credit = 'A';
+ ELSEIF point >= 80 THEN
+  SET credit = 'B';
+ ELSEIF point >= 70 THEN
+  SET credit = 'C';
+ ELSEIF point >= 60 THEN
+  SET credit = 'D';
+ ELSE
+  SET credit = 'F';
+ END IF;
+ SELECT CONCAT('취득점수:', 'POINT,', ' 학점:', credit);
+END $$
+DELIMITER ;
+
+CALL ifProc3();
+
+DROP PROCEDURE IF EXISTS caseProc;
+DELIMITER $$ 
+CREATE PROCEDURE caseProc()
+BEGIN
+ DECLARE point INT;
+ DECLARE credit CHAR(1);
+ SET point = 77;
+
+ CASE
+ WHEN point >= 90 THEN
+  SET credit = 'A';
+ WHEN point >= 80 THEN
+  SET credit = 'B';
+ WHEN point >= 70 THEN
+  SET credit = 'C';
+ WHEN point >= 60 THEN
+  SET credit = 'D';
+ ELSE
+  SET credit = 'F';
+ END CASE;
+ SELECT CONCAT('취득점수:', 'POINT,', ' 학점:', credit);
+END $$
+DELIMITER ;
+
+CALL caseProc();
+
+Select name, birthYear,
+case 
+ When birthYear >= 1960 and birthYear < 1970 then '70년대생'
+ When birthYear >= 1980 and birthYear < 1990 then '80년대생'
+ Else '그 외 세대'
+end
+As 년대생 from userTbl;
+
+DROP PROCEDURE IF EXISTS whileProc;
+DELIMITER $$ 
+CREATE PROCEDURE whileProc()
+BEGIN
+ DECLARE i INT;
+ DECLARE hap INT;
+ SET i = 1;
+ SET hap = 0;
+
+ WHILE (i <= 100) DO 
+  SET hap = hap + i;
+  SET i = i + 1;
+ END WHILE;
+ SELECT CONCAT('누적합:', hap) as '1-100';
+END $$
+DELIMITER ;
+
+CALL whileProc();
+
+DROP PROCEDURE IF EXISTS whileProc2;
+DELIMITER $$ 
+CREATE PROCEDURE whileProc2()
+BEGIN
+ DECLARE i INT;
+ DECLARE hap INT;
+ SET i = 1;
+ SET hap = 0;
+
+ mylabel: WHILE (i <= 100) DO 
+  if (I%7 = 0) THEN
+	SET i = i + 1;
+	ITERATE mylabel;
+  END if;
+
+  SET hap = hap + i;
+  IF (hap > 1000) THEN
+   LEAVE mylabel;
+ END if;
+   Set i = i + 1;
+ END WHILE;
+ SELECT CONCAT('누적합:', hap) as '1-100';
+END $$
+DELIMITER ;
+
+CALL whileProc2();
+
+
+DROP PROCEDURE IF EXISTS errorProc;
+DELIMITER $$ 
+CREATE PROCEDURE errorProc()
+BEGIN
+  DECLARE CONTINUE HANDLER FOR 1146 SELECT '표가 없다.' As 오류;
+  Select * from noTable; -- buytbl;
+END $$
+DELIMITER ;
+
+CALL errorProc();
+
+Alter table usertbl
+  Add homepage varchar(30) default 'https://www.naver.com';
+Alter table usertbl
+  Drop column homepage;
+Alter table usertbl
+  Add homepage varchar(30) 'https://www.naver.com' first;
+Alter table usertbl
+  Add homepage varchar(30) 'https://www.naver.com' after addr;
+
+Alter table usertbl 
+ Change column homepage website varchar(20) default 'www.baver.com';
+
+Insert into usertbl(name, userid, birthYear, addr) VALUES('박현응','PHE',1992,'서울');
+
+Alter table buytbl drop foreign key buytbl_ibfk_1;
+
+Select userid, name, addr from usertbl;
+		<->
+Create view v_usertbl as select userid, name, addr from usertbl;
+
+Select * from v_usertbl;
+
+Create view v_usertbl_x0s as
+Select name, birthYear;
+Case
+ When birthYear >= 1960 and birthYear < 1970 then '70년대생'
+ When birthYear >= 1980 and birthYear < 1990 then '80년대생'
+ Else '그 외 세대'
+end
+As 년대생 from userTbl;
+
+Select * from v_usertbl_x0s;
+
+# view 보안/단순한 정보 전달 /
+
+Show index from buytbl;
+
+Page.388
+Create database testdb;
+Create table clustertbl(
+ userid char(8),
+ name varchar(10)
+);
+
+Insert into clustertbl values('LSG','이승기'),('KBS','김범수'),('KKH','김경호'),('JYP','조용필'),('LJB','임재범'),('YJS','윤종신'),('EJW','은지원'),('JKW','조관우'),('BBK','바비킴');
+
+Select * from clustertbl;
+
+Alter table clustertbl
+ Add constraint pk_clustertbl_userid primary key(userid);
+
+Alter table secondarytbl
+ Add constraint uk_secondarytbl_userid unique(userid);
+Select * from secondarytbl;
+
+Page.397
+
+ Create table mixedtbl(
+ Userid char(8) not null,
+ Name varchar(10) not null,
+ Addr char(2));
+
+ Insert into mixedtbl values('LSG','이승기', '서울'),('KBS','김범수', '경남'),('KKH','김경호', '전남'),('JYP','조용필', '경기'), ('SSK','성시경','서울'), ('LJB','임재범', '서울'),('YJS','윤종신', '경남'),('EJW','은지원', '경북'),('JKW','조관우', '경기'),('BBK','바비킴', '서울');
+
+Alter table mixedtbl
+  Add constraint pk_mixedtbl_userid primary key(userid);
+Select * from mixedtbl;
+
+Alter table mixedtbl
+  Add constraint pk_mixedtbl_name unique(name);
+Select * from mixedtbl;
+
+Alter table usertbl
+ Change column userID userID varchar(8) primary key;
+
+Create index idx_usertbl_addr on usertbl (addr);
+
+Alter table usertbl
+ Change column userID userID varchar(8) primary key;
