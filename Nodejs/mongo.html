@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+시작
+>brew services start mongodb-community
+
+어드민 
+>use admin
+
+어드민 생성
+>db.createUser( { user: "mongo", pwd: "password123", roles: ["root"] })
+
+root 계정으로 mongo shell 접속하기
+>mongo admin -u 아이디 -p 비번
+
+Collection 생성
+> db.createCollection("컬렉션이름")
+
+createCollection 사용 없이 Document 생성 방법
+> db.생성할컬렉션이름.insert({"키값": "벨류"})
+
+몽고DB 삭제
+> use "삭제할DB이름"
+> db.dropDatabase();
+
+Collection 삭제
+> db.삭제할컬렉션이름.drop()
+
+C찾기
+> db.users.find({});
+
+업데이트 
+>brew upgrade mongodb-community
+>mongo --version
+
+몽고 중지
+>brew services stop mongodb-community
+
+재실행
+>brew servcies restart mongodb-community
+
+
+</body>
+</html>
