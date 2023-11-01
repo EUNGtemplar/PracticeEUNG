@@ -1,1 +1,2 @@
-ALTER USER 'root'@'localhost' IDENTIFIED BY '0000';
+
+정신차려 현응아 
